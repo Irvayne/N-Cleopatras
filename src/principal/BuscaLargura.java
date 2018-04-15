@@ -21,7 +21,7 @@ public class BuscaLargura {
 			Node node = fila.poll();
 			Principal principal = new Principal(node.n, node.tabuleiro);
 			if(principal.quantidadeRainhas() == node.n) {
-				principal.imprimeTabuleiro();
+				//principal.imprimeTabuleiro();
 				return quantidadeNosExoandidos;
 			}
 			if(principal.quantidadeDisponivel() > 0) {
@@ -37,22 +37,22 @@ public class BuscaLargura {
 		System.out.println("Largura");
 		
 		int n = 8;
+		
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				System.out.println("Primeira rainha na posicao " + i + " " + j);
+				Principal principal = new Principal(n);
+				principal.tabuleiro[i][j] = 1;
+//				principal.imprimeTabuleiro();
 
-		Principal principal = new Principal(n);
 
-		Random gerador = new Random();
+				Node raiz = new Node(principal.tabuleiro, n);
 
-		principal.tabuleiro[gerador.nextInt(n)][gerador.nextInt(n)] = 1;
+				BuscaLargura busca = new BuscaLargura(raiz);
 
-		principal.imprimeTabuleiro();
-
-		System.out.println();
-
-		Node raiz = new Node(principal.tabuleiro, n);
-
-		BuscaLargura buscaLargura = new BuscaLargura(raiz);
-
-		System.out.println(buscaLargura.realizaBusca());
+				System.out.println(busca.realizaBusca());
+			}
+		}
 	}
 
 

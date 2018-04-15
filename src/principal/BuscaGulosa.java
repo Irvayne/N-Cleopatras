@@ -23,7 +23,7 @@ public class BuscaGulosa {
 			Node node = buscaHeuristica();
 			estados.remove(node);
 			Principal principal = new Principal(node.n, node.tabuleiro);
-
+			System.out.println(principal.quantidadeRainhas());
 			if (principal.quantidadeRainhas() == node.n) {
 //				principal.imprimeTabuleiro();
 				return quantidadeNosExoandidos;
